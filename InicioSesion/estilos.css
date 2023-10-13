@@ -19,25 +19,65 @@ h2 {
 .seccion{
     min-height: 10vh;
     width: 100%;
-    /* margin-left: 100px; */
+    margin-bottom: 20px;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center;
 }
 
+
+/* .table-container{
+     width: 100%;
+} */
+
+table {
+    width: 100%;
+}
+
+/* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+} */
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    table, th, td {
+        display: block;
+    }
+
+    th, td {
+        width: 100%;
+    }
+}
+  
+
 .form-box{
     position: relative;
     width: 700px;
-    height: 450px;
+    height: 500px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .form-box {
+        border: none;
+    }
 }
 
 .inputbox{
     position: relative;
     margin: 15px auto;
-    width: 310px;
+    width: 100%;
     border-bottom: 2px solid black;
 }
 .inputbox label{
@@ -57,6 +97,7 @@ top: -5px;
 .inputbox input {
     width: 50%;
     height: 40px;
+    background: transparent;
     border: none;
     outline: none;
     font-size: 0.9em;
@@ -82,6 +123,16 @@ button{
     cursor: pointer;
     font-size: 0.5em;
     font-weight: 600;
+}
+
+.responsivo{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .responsivo {
+        display: block; /* Oculta el elemento cuando el ancho de pantalla es menor a 600px */
+    }
 }
 
 .boton{
