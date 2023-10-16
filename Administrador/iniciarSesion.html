@@ -13,10 +13,9 @@
           font-family: "Poppins", sans-serif;
         }
       </style>
+    <title>NutriRed Comedores</title>
 </head>
 <body>
-    
-    
     <div class="banner">
         <img src="/Recursos/Banner.png" alt="Banner">
     </div>
@@ -24,14 +23,14 @@
     <section class="seccion" id="estudianteForm" >
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="/verificar-credenciales" method="POST"> <!-- El formulario se enviará a login.js -->
                     <h2>Ingreso como administrador</h2>
                     <table cellspacing="20">
                         <tr>                    
                             <td>
                                 <div class="inputbox">
                                     <ion-icon name="mail-outline"></ion-icon>
-                                    <input type="" required>
+                                    <input type="text" name="usuario" required> <!-- Campo para el usuario -->
                                     <label for="">Usuario:</label>
                                 </div>
                             </td>
@@ -40,14 +39,13 @@
                             <td>
                                 <div class="inputbox">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" required>
+                                    <input type="password" name="contrasena" required> <!-- Campo para la contraseña -->
                                     <label for="">Contraseña:</label>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                    
-                    <button onclick="mostrarTutor();" class="botonCont">Continuar</button>
+                    <button type="submit" class="botonCont">Continuar</button>
                 </form>
             </div>
         </div>
