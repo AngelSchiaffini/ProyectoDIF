@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "190192382108",
+    "firebase_url": "https://menuhamburguesaadmin-default-rtdb.firebaseio.com",
+    "project_id": "menuhamburguesaadmin",
+    "storage_bucket": "menuhamburguesaadmin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190192382108:android:0715eb7c54c4a98f97fd59",
+        "android_client_info": {
+          "package_name": "mx.rmr.menuhamburguesa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARTp_J_N1E0Ylik9nbZ3tmfzx-VtLHGyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190192382108:android:b41a910faa2c4b5497fd59",
+        "android_client_info": {
+          "package_name": "mx.rmr.menuhamburguesaadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARTp_J_N1E0Ylik9nbZ3tmfzx-VtLHGyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

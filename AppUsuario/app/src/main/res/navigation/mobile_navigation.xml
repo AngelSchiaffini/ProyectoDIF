@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/principalFragment">
+
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="mx.rmr.menuhamburguesa.view.PrincipalFragment"
+        android:label="@string/menu_Inicio"
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/action_principalFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_principalFragment_to_registrarseFragment"
+            app:destination="@id/registrarseFragment" />
+        <action
+            android:id="@+id/action_principalFragment_to_mapaInicioFragment"
+            app:destination="@id/mapaInicioFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="mx.rmr.menuhamburguesa.view.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="usuarioActual"
+            app:argType="mx.rmr.menuhamburguesa.model.Usuario" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/consultarInfo"
+        android:name="mx.rmr.menuhamburguesa.view.InfoFragment"
+        android:label="@string/menu_info"
+        tools:layout="@layout/fragment_info" >
+        <argument
+            android:name="usuario"
+            app:argType="mx.rmr.menuhamburguesa.model.Usuario" />
+        <action
+            android:id="@+id/action_consultarInfo_to_cambiarFragment"
+            app:destination="@id/cambiarFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/calificarComedor"
+        android:name="mx.rmr.menuhamburguesa.view.CalificarComedorFragment"
+        android:label="@string/menu_calificar"
+        tools:layout="@layout/fragment_calfica_comedores" >
+        <argument
+            android:name="usuario"
+            app:argType="mx.rmr.menuhamburguesa.model.Usuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapasFragment"
+        android:name="mx.rmr.menuhamburguesa.view.MapasFragment"
+        android:label="@string/menu_mapas"
+        tools:layout="@layout/fragment_mapas" />
+
+    <fragment
+        android:id="@+id/registrarseFragment"
+        android:name="mx.rmr.menuhamburguesa.view.RegistrarseFragment"
+        android:label="@string/menu_registrarse"
+        tools:layout="@layout/fragment_registrarse" >
+        <action
+            android:id="@+id/action_registrarseFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapaInicioFragment"
+        android:name="mx.rmr.menuhamburguesa.view.MapaInicioFragment"
+        android:label="@string/menu_inicio_mapas"
+        tools:layout="@layout/fragment_mapa_inicio" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="mx.rmr.menuhamburguesa.view.MenuFragment"
+        android:label="@string/menu_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/cambiarFragment"
+        android:name="mx.rmr.menuhamburguesa.view.CambiarFragment"
+        android:label="Informacion del Usuario"
+        tools:layout="@layout/fragment_cambiar" />
+</navigation>

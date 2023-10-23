@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/principalFragment">
+
+    <fragment
+        android:id="@+id/nav_calificaciones"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.CalificacionesFragment"
+        android:label="@string/menu_calificaciones"
+        tools:layout="@layout/fragment_calificaciones" >
+        <argument
+            android:name="comedor"
+            app:argType="mx.rmr.menuhamburguesaadmin.ui.model.Comedor" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_escanearqr"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.EscanearQRFragment"
+        android:label="@string/menu_escanearqr"
+        tools:layout="@layout/fragment_escanearqr" >
+        <action
+            android:id="@+id/action_nav_escanearqr_to_infoAsistenteFragment"
+            app:destination="@id/infoAsistenteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_registrarnuevousuario"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.RegistrarNuevoUsuarioFragment"
+        android:label="@string/menu_registrarnuevousuario"
+        tools:layout="@layout/fragment_registrarnuevousuario" />
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.PrincipalFragment"
+        android:label="@string/menu_principal"
+        tools:layout="@layout/fragment_principal" >
+        <action
+            android:id="@+id/action_principalFragment_to_nav_calificaciones"
+            app:destination="@id/nav_calificaciones" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_inventario"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.InventarioFragment"
+        android:label="@string/menu_inventario"
+        tools:layout="@layout/fragment_inventario" />
+    <fragment
+        android:id="@+id/nav_menu"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.MenuFragment"
+        android:label="@string/menu_menu"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/nav_reportes"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.ReportesFragment"
+        android:label="@string/menu_reportes"
+        tools:layout="@layout/fragment_reportes" >
+        <action
+            android:id="@+id/action_nav_reportes_to_ayudaReporteFragment"
+            app:destination="@id/ayudaReporteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ayudaReporteFragment"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.AyudaReporteFragment"
+        android:label="@string/menu_reportes_ayuda"
+        tools:layout="@layout/fragment_ayuda_reporte" />
+    <fragment
+        android:id="@+id/infoAsistenteFragment"
+        android:name="mx.rmr.menuhamburguesaadmin.ui.view.InfoAsistenteFragment"
+        android:label="@string/menu_usuario_registrado"
+        tools:layout="@layout/fragment_info_asistente" >
+        <argument
+            android:name="datoManual"
+            app:argType="string" />
+    </fragment>
+</navigation>
