@@ -22,7 +22,7 @@ class APIS {
     //El objeto retrofit
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://44.217.43.137:8080/")
+            .baseUrl("http://34.197.187.131:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
