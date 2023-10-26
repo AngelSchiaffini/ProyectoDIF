@@ -58,7 +58,7 @@ class CalificacionesVM : ViewModel() {
     fun obtenerGananciasDia(id: Int){
         calificaciones.obtenerGananciasDia(id, fechaActualDate)
         calificaciones.gananciaDia.observeForever(){
-            calificaciones.gananciaDia.value = it
+            gananciasDia.value = it
         }
     }
 

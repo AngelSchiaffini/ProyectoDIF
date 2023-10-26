@@ -75,12 +75,12 @@ class CalificacionesFragment : Fragment() {
         }
         viewModel.obtenerGananciasDia(args.comedor.FolioComedor)
 
-//        viewModel.gananciasDia.observe(viewLifecycleOwner){
-//            if (it != null){
-//                println(it)
-//                binding.tvGanancia.text = it.toString()
-//            }
-//        }
+        viewModel.gananciasDia.observe(viewLifecycleOwner){
+            if (it != null){
+                var ganancia = "$$it"
+                binding.tvGanancia.text = ganancia
+            }
+        }
 
 
     }

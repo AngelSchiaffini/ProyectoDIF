@@ -11,13 +11,11 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import mx.rmr.menuhamburguesaadmin.R
 import mx.rmr.menuhamburguesaadmin.databinding.FragmentRegistrarnuevousuarioBinding
-import mx.rmr.menuhamburguesaadmin.ui.model.Usuario
+import mx.rmr.menuhamburguesaadmin.ui.model.UsuarioR
 import mx.rmr.menuhamburguesaadmin.ui.viewmodel.RegistrarNuevoUsuarioVM
-import mx.rmr.menuhamburguesaadmin.ui.viewmodel.SharedViewModel
 import java.util.Calendar
 
 class RegistrarNuevoUsuarioFragment : Fragment() {
@@ -116,7 +114,7 @@ class RegistrarNuevoUsuarioFragment : Fragment() {
         val day = selectedCalendar.get(Calendar.DAY_OF_MONTH)
         val listener = DatePickerDialog.OnDateSetListener { _, y, m, d ->
             selectedCalendar.set(y, m, d)
-            val formattedDate = String.format("%02d-%02d-%d", d, m + 1, y) // Formato dd-mm-aaaa
+            val formattedDate = String.format("%02d-%02d-%d", y, m + 1, d) // Formato aaaa-mm-dd
             etScheduleDate.setText(formattedDate)
         }
         DatePickerDialog(requireContext(), listener, year, month, day).show()
@@ -159,21 +157,26 @@ class RegistrarNuevoUsuarioFragment : Fragment() {
             } else{
                 sexo = "O"
             }
-            val usuario = Usuario(0,binding.tiNombre.text.toString(),binding.tiApellido1.text.toString(),
+            val usuario = UsuarioR(binding.tiNombre.text.toString(),binding.tiApellido1.text.toString(),
                 binding.tiApellido2.text.toString(),
                 binding.etCURP.text.toString(),binding.spinnerNacionalidad.selectedItem.toString(),
                 sexo, binding.etFecha.text.toString(), binding.spinnerCondicion.selectedItem.toString(),
                 binding.etCelular.text.toString(), binding.etCorreo.text.toString())
+            println(usuario)
+            println(binding.etFecha.text.toString())
             viewModel.resgitrarUsuarioVM(usuario)
-            envioExitoso()
+            viewModel.idUsuario.observe(viewLifecycleOwner){
+                envioExitoso(it)
+            }
+
         }
     }
 
 
-    private fun envioExitoso() {
+    private fun envioExitoso(nuevoId: Int) {
         val alerta = AlertDialog.Builder(requireContext())
             .setTitle("Aviso")
-            .setMessage("¡Información actualizada exitosamente!")
+            .setMessage("¡Usuario registrado exitosamente con ID: ${nuevoId}!")
             .setCancelable(false)
             .setPositiveButton("Aceptar") { _, _ ->
                 // Cierra este fragmento y vuelve al anterior

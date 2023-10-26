@@ -109,7 +109,7 @@
                         android:layout_weight="1">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etIdParienteAgregar"
+                            android:id="@+id/etIdParienteEliminar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Id Pariente" />
@@ -138,7 +138,7 @@
                         android:layout_weight="1">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etIdParienteEliminar"
+                            android:id="@+id/etIdParienteAgregar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Id Pariente" />

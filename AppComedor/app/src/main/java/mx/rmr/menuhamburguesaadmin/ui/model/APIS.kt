@@ -2,6 +2,7 @@ package mx.rmr.menuhamburguesaadmin.ui.model
 
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,10 +18,12 @@ class APIS {
     val usuario = MutableLiveData<List<Usuario>>()
     val inventario = MutableLiveData<List<Inventario>>()
     val parientes = MutableLiveData<List<Pariente>>()
+    val idUsuarioNuevo = MutableLiveData<Int>()
 
     //El objeto retrofit
     private val retrofit by lazy {
         Retrofit.Builder()
+            //.baseUrl("http://44.217.43.137:8080/")
             .baseUrl("http://34.197.187.131:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -86,6 +89,7 @@ class APIS {
             override fun onResponse(call: Call<Int>, response: Response<Int>) {
                 if (response.isSuccessful){
                     println("RESPUESTA: ${response.body()}")
+                    gananciaDia.value = response.body()
                 } else{
                     println("Error en la descarga ${response.errorBody()}")
                 }
@@ -142,12 +146,22 @@ class APIS {
 
 
 
-    fun registrarUsuario(usuario: Usuario){
+    fun registrarUsuario(usuario: UsuarioR){
         val call = descargarAPI.registrarUsuario(usuario)
         call.enqueue(object : Callback<Any>{
             override fun onResponse(call: Call<Any>, response: Response<Any>) {
                 if(response.isSuccessful){
                     println("RESPUESTA: ${response.body()}")
+                    val jsonStr = response.body()?.toString()
+
+                    // Analiza el JSON
+                    val jsonObject =  JSONObject(jsonStr.toString())
+
+                    // Obtiene el valor entero del campo "numero" del JSON
+                    val numero = jsonObject.getInt("IDUsuario")
+
+                    idUsuarioNuevo.value = numero
+
                 } else{
                     println("Error en la descarga ${response.errorBody()}")
                 }

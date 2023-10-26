@@ -26,7 +26,7 @@ interface ListaServiciosAPI {
     fun registrarAsistencia(@Body asistencia: Asistencia): Call<Any>
 
     @POST("/registrarUsuario")
-    fun registrarUsuario(@Body nuevoUsuario:Usuario): Call<Any>
+    fun registrarUsuario(@Body nuevoUsuario:UsuarioR): Call<Any>
 
     @GET("/obtenerInventario/{id}")
     fun obtenerInventario(@Path("id") id: Int): Call<List<Inventario>>
